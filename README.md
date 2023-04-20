@@ -5,4 +5,3 @@ The application is for search movie and books use external api  http://www.omdba
 # create SearchTest database in ms sql server and set connection string in appsettings
 # run migration in Search.Test.Infrastructure project with Update-Database command
 # set Search.Test.Web project as startup project
-# execute app
