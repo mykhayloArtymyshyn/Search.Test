@@ -1,0 +1,51 @@
+﻿@using Search.Test.Contracts
+@model SearchResponse
+@{
+    ViewData["Title"] = "Search videos and books";
+}
+
+<div class="text-center">
+    <form action="/Home/Index" method="post">
+        <div>
+             <label>Email</label>
+            <input id="email" name="Email" value="@Model?.Email"/>
+        </div>
+        <div>
+             <label>Query</label>
+            <input id="query" name="Query" value="@Model?.Query"/>
+        </div>
+        
+       <div>
+             <label>Category</label>
+            <select id="category" name="Category" value="@Model?.Category">                
+             <option value="3">All</option>
+              <option value="1">Movie</option>
+             <option value="2">Books</option>
+            </select>
+        </div>
+        <button type="submit" id="search">Search</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        @if(Model !=null)
+        foreach (var item in Model.Results)
+    {
+        <tr>
+                <th><img src="@item.Poster"/></th>
+                <th>@item.Title</th>
+                <th>@item.Year</th>
+                <th>@item.Type</th>
+            </tr>
+    }
+    </table>
+    
+</div>
